@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="RU">
+
+<head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="/sha256.min.js"></script>
+    <script>
+        function sendCreditial() {
+            let username = document.getElementById('inputLogin').value;
+            let securePass = sha256(document.getElementById('inputPass').value);
+            fetch('/login', {
+                method: "POST",
+                mode: "cors",
+                headers: { "Content-Type": "application/json; charset=UTF-8" },
+                body: JSON.stringify({
+                    login: username,
+                    password: securePass
+                })
+            })
+                .then(resp => resp.text())
+                .then(text => document.write(text))
+                .catch(err => document.write(err));
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <!-- navbar here -->
+    </header>
+    <main>
+        <div class="container">
+            <!-- <form method="post" action="/login"> -->
+            <form method="post" action="/userprofile">
+                <div class="mb-3 row">
+                    <label for="inputLogin" class="col-4 col-form-label">Login:</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" name="inputLogin" id="inputLogin" placeholder="Login">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPass" class="col-4 col-form-label">Пароль:</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" name="inputPass" id="inputPass"
+                            placeholder="Пароль">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="sendCreditial();">Ввод</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <!-- footer here -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "milk",
+  "version": "1.0.0",
+  "description": "макет магазина фермерского молока",
+  "type": "module",
+  "main": "server.js",
+  "bin": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "магазин фермерского молока",
+    "milk",
+    "electonic commerse"
+  ],
+  "author": "Igor Peymer <igp@hb-soft.ru> (http://hbc-soft.ru)",
+  "license": "IGP",
+  "dependencies": {
+    "@kiraind/gost-r-56042-2014": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "js-sha256": "^0.9.0",
+    "jspdf": "^2.5.1",
+    "mongoose": "^6.8.3",
+    "mongoose-autopopulate": "^0.17.1"
+  },
+  "pkg": {
+    "options": [
+      "experimental-modules"
+    ],
+    "assets": [
+      "node_modules/**/*",
+      "public/**/*",
+      "views/**/*"
+    ],
+    "targets": [
+      "latest-win-x64"
+    ]
+  }
+}
