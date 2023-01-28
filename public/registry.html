@@ -12,18 +12,19 @@
         function sendCreditial() {
             let username = document.getElementById('inputLogin').value;
             let securePass = sha256(document.getElementById('inputPass').value);
-            fetch('https://ipgip.github.io/milk/public/ok.html', {
-                method: "POST",
-                mode: "cors",
-                headers: { "Content-Type": "application/json; charset=UTF-8" },
-                body: JSON.stringify({
-                    login: username,
-                    password: securePass
-                })
-            })
-                .then(resp => resp.text())
-                .then(text => document.write(text))
-                .catch(err => document.write(err));
+            document.getElementById('inputPass').value=securePass;
+        //     fetch('https://ipgip.github.io/milk/public/ok.html', {
+        //         method: "POST",
+        //         mode: "cors",
+        //         headers: { "Content-Type": "application/json; charset=UTF-8" },
+        //         body: JSON.stringify({
+        //             login: username,
+        //             password: securePass
+        //         })
+        //     })
+        //         .then(resp => resp.text())
+        //         .then(text => document.write(text))
+        //         .catch(err => document.write(err));
         }
     </script>
 </head>
@@ -49,7 +50,7 @@
                             placeholder="Пароль">
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="sendCreditial();">Ввод</button>
+                <button type="button" class="btn btn-primary" onclick="sendCreditial()">Ввод</button>
             </form>
         </div>
     </main>
