@@ -12,7 +12,7 @@
         function sendCreditial() {
             let username = document.getElementById('inputLogin').value;
             let securePass = sha256(document.getElementById('inputPass').value);
-            fetch('ok.html', {
+            fetch('https://ipgip.github.io/milk/public/ok.html', {
                 method: "POST",
                 mode: "cors",
                 headers: { "Content-Type": "application/json; charset=UTF-8" },
